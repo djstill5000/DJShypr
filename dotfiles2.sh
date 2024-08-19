@@ -24,6 +24,14 @@ else
     echo "Directories found in '$specific_folder' containing the term '$search_term':"
     rm -r "$found_dirs/chrome"
     mkdir "$found_dirs/chrome"
+
+    #Change wallpaper dir
+    LINE_NUMBER=14
+    NEW_LINE_CONTENT="        background: #f9a no-repeat url($found_dirs/chrome/img/firefox_wp.jpg) center ;"
+    sed -i "${LINE_NUMBER}s|.*|${NEW_LINE_CONTENT}|" "$home_dir/.dotfiles/firefox/userContent.css"
+
+
+    #Symlink
     ln -s "$home_dir/.dotfiles/firefox/userChrome.css" "$found_dirs/chrome/userChrome.css"
     ln -s "$home_dir/.dotfiles/firefox/userContent.css" "$found_dirs/chrome/userContent.css"
     mkdir "$found_dirs/chrome/img"
@@ -86,3 +94,9 @@ done
 #Swaylock
 rm -r "$home_dir/.config/swaylock"; mkdir "$home_dir/.config/swaylock"
 ln -s "$home_dir/.dotfiles/swaylock/config" "$home_dir/.config/swaylock/config"
+
+#Enable firefox css customization (Apparently this is not possible, prefs.js updates everytime firefox starts)
+#NEW_LINE_CONTENT="user_pref('"toolkit.legacyUserProfileCustomizations.stylesheets"', true);"
+#NEW_LINE_CONTENT=""
+#LINE_NUMBER=$(grep -n "toolkit.legacyUserProfile" "$found_dirs/prefs.js" | cut -d: -f1)
+#sed -i "${LINE_NUMBER}s/.*/${NEW_LINE_CONTENT}/" "$found_dirs/prefs.js"
