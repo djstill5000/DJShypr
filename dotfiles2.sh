@@ -60,8 +60,8 @@ done
 
 #Waybar
 rm -r "$home_dir/.config/waybar"; mkdir "$home_dir/.config/waybar"
-ln -s "$home_dir/.dotfiles/waybar/conf/v4-config.jsonc" "$home_dir/.config/waybar/config.jsonc"
-ln -s "$home_dir/.dotfiles/waybar/style/style/v4-style.css" "$home_dir/.config/waybar/style.css"
+ln -s "$home_dir/.dotfiles/waybar/conf/config.jsonc" "$home_dir/.config/waybar/config.jsonc"
+ln -s "$home_dir/.dotfiles/waybar/style/style/style.css" "$home_dir/.config/waybar/style.css"
 
 #Kitty
 rm -r "$home_dir/.config/kitty"; mkdir "$home_dir/.config/kitty"
