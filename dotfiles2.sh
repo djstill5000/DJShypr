@@ -47,12 +47,12 @@ for file in config.el custom.el init.el packages.el; do
 done
 
 #Fish
-#rm -r "$home_dir/.config/fish"; mkdir "$home_dir/.config/fish"
+rm -r "$home_dir/.config/fish"; mkdir "$home_dir/.config/fish"
 
 #ln -s "$home_dir/.dotfiles/fish/completions" "$home_dir/.config/fish/completions"
 #ln -s "$home_dir/.dotfiles/fish/conf.d" "$home_dir/.config/fish/conf.d"
-#ln -s "$home_dir/.dotfiles/fish/config.fish" "$home_dir/.config/fish/config.fish"
-#ln -s "$home_dir/.dotfiles/fish/fish_variables" "$home_dir/.config/fish/fish_variables"
+ln -s "$home_dir/.dotfiles/fish/config.fish" "$home_dir/.config/fish/config.fish"
+ln -s "$home_dir/.dotfiles/fish/fish_variables" "$home_dir/.config/fish/fish_variables"
 #ln -s "$home_dir/.dotfiles/fish/functions" "$home_dir/.config/fish/functions"
 
 
