@@ -292,8 +292,8 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
         mkdir -p $DIRPATH &>> $INSTLOG
     done
 
-    # install doom emacs
-
+    # get dotfiles
+    git clone git@github.com:djstill5000/.dotfiles.git ~/.dotfiles
 
     # link up the config files
     echo -e "$CNT - Setting up the new config..."
