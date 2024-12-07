@@ -16,7 +16,7 @@
 #   Terminal:            kitty
 #   Shell:               fish
 #   File Search:         bemenu
-#   File Manager:        thunar
+#   File Manager:        yazi
 #   Screen Locker:       swaylock
 #   Notification Daemon: mako
 #   Menu Bar:            waybar
@@ -24,16 +24,16 @@
 #   Shell Prompt:        starship
 #   Logout Menu:         wlogout
 #   Wallpaper Manager:   swww
-#   AUR helpter:         yay
+#   AUR helpter:         paru
 #
 # 2. Utilities:
 #   Browser:             firefox
 #   Editor:              emacs
-#   Image Viewer:        sxiv
-#   Video Viewer:        mpv
-#   PDF Viewer:          zathura
+#   Image Viewer:        TBD
+#   Video Viewer:        TBD
+#   PDF Viewer:          emacs
 #   Music Player:        slizbop
-#   Screenshot Software: flameshot
+#   Screenshot Software: TBD
 #
 #----------------------------------------------------------------------------------
 
@@ -51,6 +51,8 @@ prep_stage=(
     cliphist
     python-requests
     pacman-contrib
+    pipewire-media-session
+    rustup
 )
 
 #software for nvidia GPU only
@@ -86,6 +88,8 @@ install_stage=(
     zathura
     discord
     emacs
+    yazi
+    texlab
 )
 
 for str in ${myArray[@]}; do
@@ -342,3 +346,14 @@ if [[ $HYP == "Y" || $HYP == "y" ]]; then
 else
     exit
 fi
+
+
+## POTENTIALLY ADD THESE THINGS
+
+## Install latest Mesa Driver (AMD Only)
+##git clone https://github.com/Frogging-Family/mesa-git.git ~/mesa-git
+##cd ~/mesa-git
+##yes | makepkg -si
+
+## Install Vulkan driver (AMD Only)
+##sudo pacman -S vulkan-radeon lib32-vulkan-radeon

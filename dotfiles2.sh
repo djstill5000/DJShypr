@@ -42,9 +42,16 @@ fi
 
 #Emacs
 rm -r "$home_dir/.config/doom"; mkdir "$home_dir/.config/doom"
-for file in config.el custom.el init.el packages.el; do
-  ln -s "$home_dir/.dotfiles/emacs/$file" "$home_dir/.config/doom/$file"
+for file in "$home_dir/.dotfiles/emacs/"*; do
+  if [[ -e "$file" ]]; then
+    ln -s "$file" "$home_dir/.config/doom/$(basename "$file")"
+  fi
 done
+
+## OLD EMACS SECTION, CAN DELETE WHEN I KNOW THE NEW ONE WORKS
+##for file in config.el custom.el init.el packages.el; do
+##  ln -s "$home_dir/.dotfiles/emacs/$file" "$home_dir/.config/doom/$file"
+##done
 
 #Fish
 rm -r "$home_dir/.config/fish"; mkdir "$home_dir/.config/fish"
@@ -87,13 +94,40 @@ ln -s "$home_dir/.dotfiles/zathura/zathurarc" "$home_dir/.config/zathura/zathura
 
 #Mako
 rm -r "$home_dir/.config/mako"; mkdir "$home_dir/.config/mako"
-for file in conf icons; do
+for file in config icons; do
    ln -s "$home_dir/.dotfiles/mako/$file" "$home_dir/.config/mako/$file"
 done
 
 #Swaylock
 rm -r "$home_dir/.config/swaylock"; mkdir "$home_dir/.config/swaylock"
 ln -s "$home_dir/.dotfiles/swaylock/config" "$home_dir/.config/swaylock/config"
+
+#Gtk-3.0
+rm -r "$home_dir/.config/gtk-3.0"; mkdir "$home_dir/.config/gtk-3.0"
+for file in bookmarks settings.ini; do
+   ln -s "$home_dir/.dotfiles/gtk-3.0/$file" "$home_dir/.config/gtk-3.0/$file"
+done
+
+rm -r "$home_dir/.themes"; mkdir "$home_dir/.themes"
+rm -r "$home_dir/.icons"; mkdir "$home_dir/.icons"
+
+for file in "$home_dir/.dotfiles/extras/gtk-3.0_extras/themes/"*; do
+  if [[ -e "$file" ]]; then
+    ln -s "$file" "$home_dir/.themes/$file"
+  fi
+done
+
+for file in "$home_dir/.dotfiles/extras/gtk-3.0_extras/icons/"*; do
+  if [[ -e "$file" ]]; then
+    ln -s "$file" "$home_dir/.icons/$file"
+  fi
+done
+
+#yazi
+rm -r "$home_dir/.config/yazi"; mkdir "$home_dir/.config/yazi"
+for file in keymap.toml theme.toml yazi.toml; do
+   ln -s "$home_dir/.dotfiles/yazi/$file" "$home_dir/.config/yazi/$file"
+done
 
 #Enable firefox css customization (Apparently this is not possible, prefs.js updates everytime firefox starts)
 #NEW_LINE_CONTENT="user_pref('"toolkit.legacyUserProfileCustomizations.stylesheets"', true);"

@@ -1,0 +1,7 @@
+Steam Games 
+# Some steam games will require additional launch parameters to work properly
+# DOTA2: -console -novid -vulkan_disable_steam_shader_cache -sdlaudiodriver pulseaudio
+# CSGO: -sdlaudiodriver pulseaudio
+
+install this to fix weird audio issue with sitting in discord:
+pipewire-media-session
