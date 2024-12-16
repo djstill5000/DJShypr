@@ -85,9 +85,7 @@ install_stage=(
     starship
     ttf-jetbrains-mono-nerd
     fish
-    zathura
     discord
-    emacs
     yazi
     texlab
 )
@@ -122,15 +120,15 @@ show_progress() {
 # function that will test for a package and if not found it will attempt to install it
 install_software() {
     # First lets see if the package is there
-    if yay -Q $1 &>> /dev/null ; then
+    if paru -Q $1 &>> /dev/null ; then
         echo -e "$COK - $1 is already installed."
     else
         # no package found so installing
         echo -en "$CNT - Now installing $1 ."
-        yay -S --noconfirm $1 &>> $INSTLOG &
+        paru -S --noconfirm $1 &>> $INSTLOG &
         show_progress $!
         # test to make sure package installed
-        if yay -Q $1 &>> /dev/null ; then
+        if paru -Q $1 &>> /dev/null ; then
             echo -e "\e[1A\e[K$COK - $1 was installed."
         else
             # if this is hit then a package is missing, exit to review log
@@ -151,24 +149,24 @@ else
 fi
 
 #### Check for package manager ####
-if [ ! -f /sbin/yay ]; then
-    echo -en "$CNT - Configuering yay."
-    git clone https://aur.archlinux.org/yay.git &>> $INSTLOG
-    cd yay
+if [ ! -f /sbin/paru ]; then
+    echo -en "$CNT - Configuering paru."
+    git clone https://aur.archlinux.org/paru.git &>> $INSTLOG
+    cd paru
     makepkg -si --noconfirm &>> ../$INSTLOG &
     show_progress $!
-    if [ -f /sbin/yay ]; then
-        echo -e "\e[1A\e[K$COK - yay configured"
+    if [ -f /sbin/paru ]; then
+        echo -e "\e[1A\e[K$COK - paru configured"
         cd ..
 
-        # update the yay database
-        echo -en "$CNT - Updating yay."
-        yay -Suy --noconfirm &>> $INSTLOG &
+        # update the paru database
+        echo -en "$CNT - Updating paru."
+        paru -Suy --noconfirm &>> $INSTLOG &
         show_progress $!
-        echo -e "\e[1A\e[K$COK - yay updated."
+        echo -e "\e[1A\e[K$COK - paru updated."
     else
         # if this is hit then a package is missing, exit to review log
-        echo -e "\e[1A\e[K$CER - yay install failed, please check the install.log"
+        echo -e "\e[1A\e[K$CER - paru install failed, please check the install.log"
         exit
     fi
 fi
@@ -215,7 +213,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 
     # Clean out other portals
     echo -e "$CNT - Cleaning out conflicting xdg portals..."
-    yay -R --noconfirm xdg-desktop-portal-gnome xdg-desktop-portal-gtk &>> $INSTLOG
+    paru -R --noconfirm xdg-desktop-portal-gnome xdg-desktop-portal-gtk &>> $INSTLOG
 fi
 
 ### Copy Config Files ###
@@ -258,7 +256,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
     # link up the config files
     echo -e "$CNT - Setting up the new config..."
-    chmod +x ~/DJShypr/dotfiles2.sh && sh ~/DJShypr/dotfiles2.sh && echo "dotfiles linked!"
+    chmod +x ~/DJShypr/dotfiles.sh && sh ~/DJShypr/dotfiles.sh && echo "dotfiles linked!"
 
     #Sets Default Wallpaper
     swww img ~/.dotfiles/images/wallpapers/wallpaper.jpg
@@ -323,14 +321,55 @@ if [[ $ROG == "Y" || $ROG == "y" ]]; then
     echo -e "\nsource = ~/.config/hypr/rog-g15-strix-2021-binds.conf" >> ~/.config/hypr/hyprland.conf
 fi
 
+# get dotfiles
+git clone https://github.com/djstill5000/.dotfiles.git ~/.dotfiles
+
+# link up the config files
+echo -e "$CNT - Setting up the new config..."
+chmod +x ~/DJShypr/dotfiles.sh && sh ~/DJShypr/dotfiles.sh && echo "dotfiles linked!"
+
 # Sets default wallpaper
-swww img ~/.dotfiles/images/wallpapers/wallpaper.jpg
+swww img ~/.dotfiles/extras/wallpapers/4.png
 
 # Setup Doom emacs
-git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
-~/.config/emacs/bin/doom install
-sudo rm -r ~/.emacs.d
-doom sync
+#git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+#~/.config/emacs/bin/doom install
+#sudo rm -r ~/.emacs.d
+#doom sync
+
+# Install miniconda + configure in PATH
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm ~/miniconda3/miniconda.sh
+
+sh ~/miniconda3/bin/conda init --all
+
+sh source ~/.dotfiles/fish/config.fish
+
+# Install emacs
+sudo pacman -S libgccjit libgccjit-devel gtk3 gtk3-devel gtk4 gtk4-devel libtree-sitter libtree-sitter-devel \
+     jansson-devel libvterm-devel webkit2gtk5.0-devel gnutls-devel tree-sitter
+
+git clone --single-branch --branch=emacs-29 git://git.sv.gnu.org/emacs.git emacs-29
+
+cd emacs-29/
+
+sh autogen.sh
+
+sh configure --without-compress-install --with-pgtk --without-libotf --with-x-toolkit=no --with-cairo \
+        	 --with-tree-sitter --with-json --with-mailutils --with-rsvg \
+        	 CFLAGS="-O2 -mtune=native -march=native -fomit-frame-pointer" prefix=/usr/local
+
+make -j16
+
+make check
+
+sudo make install
+
+# Uninstall dolphin and related packages
+sudo pacman -Rns dolphin
+
 
 ### Script is done ###
 echo -e "$CNT - Script had completed!"

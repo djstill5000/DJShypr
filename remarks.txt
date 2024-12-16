@@ -3,5 +3,13 @@ Steam Games
 # DOTA2: -console -novid -vulkan_disable_steam_shader_cache -sdlaudiodriver pulseaudio
 # CSGO: -sdlaudiodriver pulseaudio
 
-install this to fix weird audio issue with sitting in discord:
-pipewire-media-session
+Install this to fix weird audio issue with sitting in discord:
+# pipewire-media-session
+
+Minecraft Audio:
+# Minecraft audio doesn't work by default, add "drivers=pulse,alsa"
+  to /etc/openal/alsoft.conf
+
+Minecraft GPU:
+# Minecraft may not automatically launch with the proper GPU, If not
+  run "DRI_PRIME=1 minecraft-launcher"
