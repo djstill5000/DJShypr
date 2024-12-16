@@ -346,6 +346,11 @@ sh ~/miniconda3/bin/conda init --all
 sh source ~/.dotfiles/fish/config.fish
 
 # Install emacs
+
+cd ~
+
+sudo pacman -S cmake
+
 sudo pacman -S libgccjit libgccjit-devel gtk3 gtk3-devel gtk4 gtk4-devel libtree-sitter libtree-sitter-devel \
      jansson-devel libvterm-devel webkit2gtk5.0-devel gnutls-devel tree-sitter
 
@@ -356,7 +361,7 @@ cd emacs-29/
 sh autogen.sh
 
 sh configure --without-compress-install --with-pgtk --without-libotf --with-x-toolkit=no --with-cairo \
-        	 --with-tree-sitter --with-json --with-mailutils --with-rsvg \
+        	 --with-native-compilation=aot --with-tree-sitter --with-json --with-mailutils --with-rsvg \
         	 CFLAGS="-O2 -mtune=native -march=native -fomit-frame-pointer" prefix=/usr/local
 
 make -j16

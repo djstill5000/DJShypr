@@ -80,7 +80,7 @@ ln -s "$home_dir/.dotfiles/waybar/style/style/style.css" "$home_dir/.config/wayb
 
 #Kitty
 rm -r "$home_dir/.config/kitty"; mkdir "$home_dir/.config/kitty"
-for file in kitty.conf kitty.conf.bak mocha.conf; do
+for file in kitty.conf kitty.conf.bak mocha.conf current-theme.conf; do
    ln -s "$home_dir/.dotfiles/kitty/$file" "$home_dir/.config/kitty/$file"
 done
 
