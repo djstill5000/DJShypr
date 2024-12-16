@@ -51,8 +51,6 @@ prep_stage=(
     cliphist
     python-requests
     pacman-contrib
-    pipewire-media-session
-    rustup
 )
 
 #software for nvidia GPU only
