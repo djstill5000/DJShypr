@@ -349,10 +349,10 @@ sh source ~/.dotfiles/fish/config.fish
 
 cd ~
 
-sudo pacman -S cmake
+sudo pacman -S cmake gd libotf m17n-lib tree-sitter
 
 sudo pacman -S libgccjit libgccjit-devel gtk3 gtk3-devel gtk4 gtk4-devel libtree-sitter libtree-sitter-devel \
-     jansson-devel libvterm-devel webkit2gtk5.0-devel gnutls-devel tree-sitter
+     jansson-devel libvterm-devel webkit2gtk5.0-devel gnutls-devel
 
 git clone --single-branch --branch=emacs-29 git://git.sv.gnu.org/emacs.git emacs-29
 
@@ -360,15 +360,38 @@ cd emacs-29/
 
 sh autogen.sh
 
-sh configure --without-compress-install --with-pgtk --without-libotf --with-x-toolkit=no --with-cairo \
-        	 --with-native-compilation=aot --with-tree-sitter --with-json --with-mailutils --with-rsvg \
-        	 CFLAGS="-O2 -mtune=native -march=native -fomit-frame-pointer" prefix=/usr/local
+./configure --without-compress-install \
+            --with-pgtk \
+            --without-libotf \
+            --with-x-toolkit=no \
+            --with-cairo \
+            --with-native-compilation=aot \
+            --with-tree-sitter \
+            --with-json \
+            --with-mailutils \
+            --with-rsvg \
+            CFLAGS="-O2 -mtune=native -march=native -fomit-frame-pointer" \
+            --prefix=/usr/local
+
+#sh configure --without-compress-install --with-pgtk --without-libotf --with-x-toolkit=no --with-cairo \
+#        	 --with-native-compilation=aot --with-tree-sitter --with-json --with-mailutils --with-rsvg \
+#        	 CFLAGS="-O2 -mtune=native -march=native -fomit-frame-pointer" prefix=/usr/local
 
 make -j16
 
 make check
 
 sudo make install
+
+# Setup Doom emacs
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+~/.config/emacs/bin/doom install
+sudo rm -r ~/.emacs.d
+doom sync
+
+# Fix paru location
+cd ~/repos/DJShypr
+mv paru ~
 
 # Uninstall dolphin and related packages
 sudo pacman -Rns dolphin
