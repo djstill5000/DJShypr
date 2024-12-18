@@ -13,3 +13,14 @@ Minecraft Audio:
 Minecraft GPU:
 # Minecraft may not automatically launch with the proper GPU, If not
   run "DRI_PRIME=1 minecraft-launcher"
+
+Firefox:
+# Enable this to get custom firefox background working
+# 1. Enable about:config -> toolkit.legacyUserProfileCustomizations.stylesheets (True)
+# 2. Need to execute dotfiles.sh again to re-link firefox things
+
+Mouse Cursor + GTK Themes:
+# Type "nwg-look" into terminal
+# Icon theme: Zafiro-nord-dark-grey
+# Cursor theme: BreezeX-dark
+# Widget: Everforest-Dark / Everforest-Light

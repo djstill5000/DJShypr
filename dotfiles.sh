@@ -111,15 +111,17 @@ done
 rm -r "$home_dir/.themes"; mkdir "$home_dir/.themes"
 rm -r "$home_dir/.icons"; mkdir "$home_dir/.icons"
 
+
+
 for file in "$home_dir/.dotfiles/extras/gtk-3.0_extras/themes/"*; do
   if [[ -e "$file" ]]; then
-    ln -s "$file" "$home_dir/.themes/$file"
+    ln -s "$file" "$home_dir/.themes/$(basename "$file")"
   fi
 done
 
 for file in "$home_dir/.dotfiles/extras/gtk-3.0_extras/icons/"*; do
   if [[ -e "$file" ]]; then
-    ln -s "$file" "$home_dir/.icons/$file"
+    ln -s "$file" "$home_dir/.icons/$(basename "$file")"
   fi
 done
 

@@ -349,10 +349,15 @@ sh source ~/.dotfiles/fish/config.fish
 
 cd ~
 
-sudo pacman -S cmake gd libotf m17n-lib tree-sitter
+# emacs core dependencies
+sudo pacman -S cmake gd libotf m17n-lib tree-sitter libgccjit
 
+# other dependencies, can maybe be lumped in with above
 sudo pacman -S libgccjit libgccjit-devel gtk3 gtk3-devel gtk4 gtk4-devel libtree-sitter libtree-sitter-devel \
      jansson-devel libvterm-devel webkit2gtk5.0-devel gnutls-devel
+
+# dependencies for pdf-tools
+sudo pacman -S poppler poppler-glib
 
 git clone --single-branch --branch=emacs-29 git://git.sv.gnu.org/emacs.git emacs-29
 
@@ -360,6 +365,9 @@ cd emacs-29/
 
 sh autogen.sh
 
+
+# Might need to do this step manually, not sure if this works properly,
+# this step is vital to ensuring emacs has transparency and compiles correctly
 ./configure --without-compress-install \
             --with-pgtk \
             --without-libotf \
@@ -372,10 +380,6 @@ sh autogen.sh
             --with-rsvg \
             CFLAGS="-O2 -mtune=native -march=native -fomit-frame-pointer" \
             --prefix=/usr/local
-
-#sh configure --without-compress-install --with-pgtk --without-libotf --with-x-toolkit=no --with-cairo \
-#        	 --with-native-compilation=aot --with-tree-sitter --with-json --with-mailutils --with-rsvg \
-#        	 CFLAGS="-O2 -mtune=native -march=native -fomit-frame-pointer" prefix=/usr/local
 
 make -j16
 
