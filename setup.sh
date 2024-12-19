@@ -157,7 +157,7 @@ fi
 #### Check for package manager ####
 if [ ! -f /sbin/paru ]; then
     echo -en "$CNT - Configuering paru."
-    cd ~/repos/public
+    cd ~/git/public
     git clone https://aur.archlinux.org/paru.git &>> $INSTLOG
     cd paru
     makepkg -si --noconfirm &>> ../$INSTLOG &
@@ -232,6 +232,17 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     # copy the HyprV directory
     #cp -R HyprV ~/.config/
 
+    # Link up config files
+    echo -e "$CNT - Setting up the new config..."
+
+    mkdir ~/.dotfiles
+
+    cd ~/.config/DJ-hyprland/dotfiles
+
+    cp -r * ~/.dotfiles
+
+    chmod +x ~/.config/DJ-hyprland/symlink.sh && sh ~/.config/DJ-hyprland/symlink.sh && echo "dotfiles linked!"
+
     #set the measuring unit
     #echo -e "$CNT - Attempring to set mesuring unit..."
     #if locale -a | grep -q ^en_US; then
@@ -246,22 +257,19 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
     # Setup each appliaction
     # check for existing config folders and backup
-    #for DIR in hypr kitty mako swaylock waybar wlogout wofi
-    #do
-    #    DIRPATH=~/.config/$DIR
-    #    if [ -d "$DIRPATH" ]; then
-    #        echo -e "$CAT - Config for $DIR located, backing up."
-    #        mv $DIRPATH $DIRPATH-back &>> $INSTLOG
-    #        echo -e "$COK - Backed up $DIR to $DIRPATH-back."
-    #    fi
-    #
-    #    # make new empty folders
-    #    mkdir -p $DIRPATH &>> $INSTLOG
-    #done
+    for DIR in hypr kitty mako swaylock waybar wlogout wofi
+    do
+        DIRPATH=~/.config/$DIR
+        if [ -d "$DIRPATH" ]; then
+            echo -e "$CAT - Config for $DIR located, backing up."
+            mv $DIRPATH $DIRPATH-back &>> $INSTLOG
+            echo -e "$COK - Backed up $DIR to $DIRPATH-back."
+        fi
 
-    # link up the config files
-    echo -e "$CNT - Setting up the new config..."
-    chmod +x ~/repos/private/DJ-hyprland/symlink.sh && sh ~/repos/private/DJ-hyprland/symlink.sh && echo "dotfiles linked!"
+        # make new empty folders
+        mkdir -p $DIRPATH &>> $INSTLOG
+    done
+
 
     # add the Nvidia env file to the config (if needed)
     if [[ "$ISNVIDIA" == true ]]; then
@@ -291,7 +299,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     xfconf-query -c xsettings -p /Net/IconThemeName -s "Zafiro-Nord-Dark-Grey"
     gsettings set org.gnome.desktop.interface gtk-theme "Everforest-Light"
     gsettings set org.gnome.desktop.interface icon-theme "Zafiro-Nord-Dark-Grey"
-    cp -f ~/repos/private/DJ-hyprland/dotfiles/extras/wallpapers/2.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
+    cp -f ~/git/private/DJ-hyprland/dotfiles/extras/wallpapers/2.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
 fi
 
 ### Install software for Asus ROG laptops ###
@@ -327,18 +335,18 @@ fi
 #--------------------------------------------------------------------------------------------------#
 
 # Install miniconda + configure in PATH
-mkdir -p ~/repos/public/miniconda3
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/repos/public/miniconda3/miniconda.sh
-bash ~/repos/public/miniconda3/miniconda.sh -b -u -p ~/repos/public/miniconda3
-rm ~/repos/public/miniconda3/miniconda.sh
+mkdir -p ~/git/public/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/git/public/miniconda3/miniconda.sh
+bash ~/git/public/miniconda3/miniconda.sh -b -u -p ~/git/public/miniconda3
+rm ~/git/public/miniconda3/miniconda.sh
 
-sh ~/repos/public/miniconda3/bin/conda init --all
+sh ~/git/public/miniconda3/bin/conda init --all
 
-sh source ~/repos/private/DJ-hyprland/dotfiles/fish/config.fish
+sh source ~/git/private/DJ-hyprland/dotfiles/fish/config.fish
 
 # Install emacs
 
-cd ~/repos/public
+cd ~/git/public
 
 # emacs core dependencies
 sudo pacman -S cmake gd libotf m17n-lib tree-sitter libgccjit
@@ -385,7 +393,7 @@ sudo rm -r ~/.emacs.d
 doom sync
 
 # Fix paru location
-#cd ~/repos/DJShypr
+#cd ~/git/DJShypr
 #mv paru ~
 
 # Uninstall dolphin and related packages
