@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: surface_of_sphere_metric
+# key: <met-sos
+# --
+
+ds^2 = R^2 \, d\theta^2 + R^2 \sin^2 \theta \, d\phi^2

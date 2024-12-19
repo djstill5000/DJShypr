@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: integral2
+# key: <int2
+# --
+
+\iint_{${1:D}} ${2:f(x, y)} \, ${3:dx} \, ${4:dy}

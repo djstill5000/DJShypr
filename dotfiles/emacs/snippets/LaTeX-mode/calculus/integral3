@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: integral3
+# key: <int3
+# --
+
+\iiint_{${1:V}} ${2:f(x, y, z)} \, ${3:dx} \, ${4:dy} \, ${5:dz}

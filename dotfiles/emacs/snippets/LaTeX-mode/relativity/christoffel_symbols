@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: christoffel_symbols
+# key: <gr-cs
+# --
+
+ \Gamma^{${1:\sigma}}_{${2:\mu} ${3:\nu}} = \frac{1}{2}g^{{$1} ${4:\lambda}}
+ (\partial_{{$2}} g_{{$3} {$4}} + \partial_{{$3}} g_{{$4} {$2}} - \partial_{{$4}}
+ g_{{$2} {$3}})

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: killing_equation_expanded
+# key: <gr-killing-expanded
+# --
+
+\partial_{${1:\alpha}}\xi_{${2:\beta}} - \sum\Gamma^{${3:\lambda}}_{{$1} {$2}}\xi_{{$3}} +
+\partial_{{$2}}\xi_{{$1}} - \sum\Gamma^{{$3}}_{{$2} {$1}}\xi_{{$3}} = 0

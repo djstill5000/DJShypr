@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: field_equation
+# key: <gr-efe
+# --
+
+R_{${1:\mu} ${2:\nu}} - \frac{1}{2}R g_{{$1} {$2}} + \Lambda g_{{$1} {$2}}
+= \frac{8\pi G}{c^4} T_{{$1} {$2}}}

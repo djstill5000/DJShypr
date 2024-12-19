@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: covariant_derivative_on_covariant_vector
+# key: <gr-covd-cov-vector
+# --
+
+\nabla_{${1:\mu}}X_{${2:\nu}} = \partial_{{$1}}X_{{$2}} - \Gamma^{{${3:\lambda}}}_{{$2} {$1}}X_{{$3}}

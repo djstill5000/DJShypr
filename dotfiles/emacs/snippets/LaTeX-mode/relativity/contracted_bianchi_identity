@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: contracted_bianchi_identity
+# key: <gr-bianchi-contracte d
+# --
+
+\nabla^{${1:\mu}}R_{{$1} ${2:\nu}} = \frac{1}{2}\nabla_{{$2}}R

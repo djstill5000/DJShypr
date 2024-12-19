@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: lie_derivative_of_connection
+# key: <gr-lie-connection
+# --
+
+\mathcal{L}_{X} \Gamma^{${1:\sigma}}_{${2:\mu} ${3:\nu}} = X^{${4:\lambda}}\partial_{{$4}}\Gamma^{{$1}}_{{$2} {$3}}
++ \partial_{{$2}}\partial_{{$3}}X^{{$1}} - \Gamma^{{$4}}_{{$2} {$3}}\partial_{{$4}}X^{{$1}} +
+\Gamma^{{$1}}_{{$4} {$3}}\partial_{{$2}}X^{{$4}}+\Gamma^{{$1}}_{{$2} {$4}}\partial_{$3}X^{{$4}}

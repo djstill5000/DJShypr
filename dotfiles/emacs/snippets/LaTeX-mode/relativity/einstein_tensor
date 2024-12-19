@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: einstein_tensor
+# key: <gr-eint
+# --
+
+G_{${1:\mu} ${2:\nu}} = R_{{$1} {$2}} - \frac{1}{2}g_{{$1} {$2}}R

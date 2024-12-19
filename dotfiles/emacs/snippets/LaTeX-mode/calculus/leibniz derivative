@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: leibniz derivative
+# key: <mdl
+# --
+
+\frac{d^${1:n} ${2:y}}{d${3:x}^${4:n}}

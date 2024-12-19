@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: bmatrix_3x3
+# key: <m-3x3
+# --
+
+\begin{bmatrix}
+${1:a11} & ${2:a12} & ${3:a13} \\\
+${4:a21} & ${5:a22} & ${6:a23} \\\
+${7:a31} & ${8:a32} & ${9:a33}
+\end{bmatrix}

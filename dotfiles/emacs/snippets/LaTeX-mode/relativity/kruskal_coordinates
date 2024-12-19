@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: kruskal_coordinates
+# key: <gr-kc
+# --
+
+ds^2 = \frac{32G^3 M^3}{r}e^{-r/2GM}(-dT^2 + dR^2) + r^2 d\Omega^2

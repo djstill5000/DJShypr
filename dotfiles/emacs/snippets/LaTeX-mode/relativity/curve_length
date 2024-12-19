@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: curve_length
+# key: <gr-cl
+# --
+
+S = \int_{a}^{b} \left| g_{${1:\mu} ${2:\nu}} \frac{dx^{{$1}}}{d$3} \frac{dx^{{$2}}}{d$3}\right|^{\frac{1}{2}} d${3:\lambda}

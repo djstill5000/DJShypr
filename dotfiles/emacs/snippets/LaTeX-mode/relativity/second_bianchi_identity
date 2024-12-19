@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: second_bianchi_identity
+# key: <gr-bianchi-second
+# --
+
+\nabla_{${1:\lambda}}R_{${2:\mu} ${3:\nu} ${4:\rho} ${5:\sigma}} + \nabla_{$4}R_{{$2} {$3} {$5} {$1}} + \nabla_{$5}R_{{$2} {$3} {$1} {$4}} = 0

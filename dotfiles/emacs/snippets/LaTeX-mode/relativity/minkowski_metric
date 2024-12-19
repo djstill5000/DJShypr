@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: minkowski_metric
+# key: <gr-min
+# --
+
+ds^2 = -c^2 dt^2 + dx^2 + dy^2 + dz^2

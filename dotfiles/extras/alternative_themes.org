@@ -1,0 +1,197 @@
+#+title: Alternative Themes
+
+* Tokyo-Night
+
+** bemenu
+
+~/.dotfiles/bemenu/DJ_bemenu.sh
+#+BEGIN_SRC bash
+
+#!/usr/bin/env sh
+bemenu-run -l 20 \
+--tb '#6272a4CC' --tf '#FFFFFF' \
+--fb '#282a36CC' --ff '#f8f8f2' \
+--nb '#282a36CC' --nf '##FFFFFF' \
+--hb '#44475aCC' --hf '#50fa7b' \
+--sb '#44475aCC' --sf '#50fa7b' \
+--scb '#282a36CC' --scf '#FFFFFF' \
+--ab '#282a36CC' --af '#FFFFFF' \
+-p 'djmenu' \
+--single-instance \
+-b
+
+#+END_SRC
+
+** discord
+
+betterdiscord.css
+#+BEGIN_SRC css
+
+~/.dotfiles/discord/tokyo-night.css
+
+#+END_SRC
+
+** firefox
+
+firefox extension
+#+BEGIN_SRC
+
+https://addons.mozilla.org/en-US/firefox/addon/tokyo-night-milav/
+
+#+END_SRC
+
+** kitty
+
+~/.dotfiles/kitty/kitty.conf
+#+BEGIN_SRC bash
+
+# BEGIN_KITTY_THEME
+# Tokyo Night
+include current-theme.conf
+# END_KITTY_THEME
+
+#+END_SRC
+
+#+RESULTS:
+
+** emacs
+
+~/.dotfiles/emacs/config.el
+#+BEGIN_SRC elisp
+
+(setq doom-theme 'doom-tokyo-night)
+
+#+END_SRC
+
+#+RESULTS:
+
+** mako
+
+~/.dotfiles/mako/config
+#+BEGIN_SRC
+
+sort=-time
+layer=overlay
+background-color=#2e3440
+width=300
+height=110
+border-size=2
+border-color=#88c0d0
+border-radius=15
+icons=0
+max-icon-size=64
+default-timeout=5000
+ignore-timeout=1
+font=monospace 14
+
+[urgency=low]
+border-color=#cccccc
+
+[urgency=normal]
+border-color=#d08770
+
+[urgency=high]
+border-color=#bf616a
+default-timeout=0
+
+[category=mpd]
+default-timeout=2000
+group-by=category
+
+#+END_SRC
+
+* Gruvbox
+
+** bemenu
+
+~/.dotfiles/bemenu/DJ_bemenu.sh
+#+BEGIN_SRC bash
+
+bemenu-run -l 20 \
+--tb '#282828CC' --tf '#ebdbb2' \
+--fb '#1d2021CC' --ff '#ebdbb2' \
+--nb '#1d2021CC' --nf '#ebdbb2' \
+--hb '#3c3836CC' --hf '#b8bb26' \
+--sb '#3c3836CC' --sf '#b8bb26' \
+--scb '#1d2021CC' --scf '#ebdbb2' \
+--ab '#1d2021CC' --af '#ebdbb2' \
+-p 'djmenu' \
+--single-instance \
+-b
+
+#+END_SRC
+
+** discord
+
+betterdiscord.css
+#+BEGIN_SRC
+
+~/.dotfiles/discord/gruvbox.css
+
+#+END_SRC
+
+** firefox
+
+firefox extension
+#+BEGIN_SRC
+
+https://codeberg.org/calvinchd/GruvboxDarkFirefoxTheme
+
+#+END_SRC
+
+** kitty
+
+~/.dotfiles/kitty/kitty.conf
+#+BEGIN_SRC bash
+
+# BEGIN_KITTY_THEME
+# Pnevma
+include current-theme.conf
+# END_KITTY_THEME
+
+#+END_SRC
+
+** emacs
+
+~/.dotfiles/emacs/config.el
+#+BEGIN_SRC emacs-lisp
+
+(setq doom-theme 'gruvvy)
+
+#+END_SRC
+
+
+** mako
+
+~/.dotfiles/mako/config
+#+BEGIN_SRC
+
+sort=-time
+layer=overlay
+background-color=#4f4743
+width=300
+height=110
+border-size=2
+border-color=#d65d0e
+border-radius=15
+icons=0
+max-icon-size=64
+default-timeout=5000
+ignore-timeout=1
+font=monospace 14
+
+[urgency=low]
+border-color=#a89984
+
+[urgency=normal]
+border-color=#d79921
+
+[urgency=high]
+border-color=#cc241d
+default-timeout=0
+
+[category=mpd]
+default-timeout=2000
+group-by=category
+
+#+END_SRC

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: ricci_scalar
+# key: <gr-ricci-s
+# --
+
+R = g^(${1:\mu} ${2:\nu})R_{{$1} {$2}}

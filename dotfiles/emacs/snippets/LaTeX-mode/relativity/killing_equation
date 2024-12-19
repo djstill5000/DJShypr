@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: killing_equation
+# key: <gr-killing
+# --
+
+\nabla_{${1:\mu}}\xi_{${2:\nu}} + \nabla_{{$2}}\xi_{{$1}} = 0

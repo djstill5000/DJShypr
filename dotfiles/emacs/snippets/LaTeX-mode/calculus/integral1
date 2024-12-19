@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: integral1
+# key: <int1
+# --
+
+\int_${1:a}^${2:b} ${3:f(x)} \, ${4:dx}

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: torsion_tensor
+# key: <gr-tor
+# --
+
+T^{${1:\lambda}}_{${2:\mu} ${3:\nu}} = \Gamma^{{$1}}_{{$2} {$3}}-\Gamma^{{$1}}_{{$3} {$2}} - \gamma^{{$1}}_{{$2} {$3}}

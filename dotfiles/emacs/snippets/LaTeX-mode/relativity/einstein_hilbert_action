@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: einstein_hilbert_action
+# key: <gr-eha
+# --
+
+J = \frac{1}{2 \kappa} \int R \sqrt{-g} d^4 x

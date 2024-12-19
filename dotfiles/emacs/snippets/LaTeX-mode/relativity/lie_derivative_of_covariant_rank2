@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: lie_derivative_of_covariant_rank2
+# key: <gr-lie-cov-rank2
+# --
+
+\mathcal{L}_{X}T_{${1:\mu} ${2:\nu}} = X^{${3:\lambda}}\partial_{{$3}}T_{{$1} {$2}} -
+T_{{$3} {$2}}\partial_{{$1}}X^{{$3}} - T_{{$1} {$3}}\partial_{{$2}}X^{{$3}}

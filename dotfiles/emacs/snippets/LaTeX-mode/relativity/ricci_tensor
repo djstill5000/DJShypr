@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: ricci_curvature
+# key: <gr-ricci-c
+# --
+
+R_{${1:\mu} ${2:\nu}} = R^{${3:\lambda}}_{{$2} {$3}}

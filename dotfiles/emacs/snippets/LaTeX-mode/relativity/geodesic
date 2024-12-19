@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: geodesic
+# key: <gr-geo
+# --
+
+\frac{d^{2}x^{${1:\mu}}}{d ${2:\lambda}^{2}} + \Gamma^{{$1}}_{${3:\rho} ${4:\sigma}}
+\frac{dx^{{$3}}}{d {$2}}\frac{dx^{{$4}}}{d {$2}} = 0

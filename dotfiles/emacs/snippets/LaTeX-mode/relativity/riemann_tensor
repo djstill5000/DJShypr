@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: riemann_tensor
+# key: <gr-riemann
+# --
+
+R^{${1:\rho}}_{${2:\sigma} ${3:\mu} ${4:\nu}} = \partial_{{$3}}\Gamma^{{$1}}_{{$4} {$2}}-\partial_{{$4}}
+\Gamma^{{$1}}_{{$3} {$2}}+\Gamma^{{$1}}_{{$3} ${5:\lambda}}\Gamma^{{$5}}_{{$4} {$2}}-
+\Gamma^{{$1}}_{{$4} {$5}}\Gamma^{{$5}}_{{$3} {$2}}

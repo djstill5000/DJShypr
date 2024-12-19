@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: schwarzschild_metric
+# key: <gr-sch
+# --
+
+ds^2 = -\Big(1-\frac{2GM}{c^2 r}\Big)c^2 dt^2 + \Big(1-\frac{2GM}{c^2 r}\Big)^{-1} dr^2 + r^2 d\theta^2 + r^2 sin^2\theta d\phi^2

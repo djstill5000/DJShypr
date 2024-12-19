@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: bmatrix_2x2
+# key: <m-2x2
+# --
+
+\begin{bmatrix}
+${1:a11} & ${2:a12} \\\
+${3:a21} & ${4:a22}
+\end{bmatrix}
