@@ -82,6 +82,8 @@ install_stage=(
     swaylock-effects
     bemenu-wayland
     wlogout
+    gvfs
+    brightnessctl
     xdg-desktop-portal-hyprland
     slurp
     thunar
