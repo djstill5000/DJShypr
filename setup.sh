@@ -312,7 +312,13 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     xfconf-query -c xsettings -p /Net/IconThemeName -s "Zafiro-Nord-Dark-Grey"
     gsettings set org.gnome.desktop.interface gtk-theme "Everforest-Light"
     gsettings set org.gnome.desktop.interface icon-theme "Zafiro-Nord-Dark-Grey"
-    cp -f ~/git/private/DJ-hyprland/dotfiles/extras/wallpapers/2.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
+
+    gsettings set org.gnome.desktop.background picture-uri "~/.dotfiles/extras/wallpapers/2.jpg"
+    gsettings set org.gnome.desktop.background picture-options 'scaled'
+
+    xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -s "~/.dotfiles/extras/wallpapers/2.jpg"
+
+    #cp -f ~/git/private/DJ-hyprland/dotfiles/extras/wallpapers/2.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
 fi
 
 ### Install software for Asus ROG laptops ###
