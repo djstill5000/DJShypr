@@ -355,7 +355,7 @@ rm ~/git/public/miniconda3/miniconda.sh
 
 sh ~/git/public/miniconda3/bin/conda init --all
 
-sh source ~/git/private/DJ-hyprland/dotfiles/fish/config.fish
+sh source ~/.dotfiles/fish/config.fish
 
 # Install emacs
 
