@@ -86,10 +86,7 @@ install_stage=(
     slurp
     thunar
     btop
-    firefox
     pavucontrol
-    brightnessctl
-    gvfs
     thunar-archive-plugin
     starship
     ttf-jetbrains-mono-nerd
@@ -97,6 +94,11 @@ install_stage=(
     yazi
     texlab
 )
+
+
+#firefox
+#brightnessctl
+#gvfs
 
 for str in ${myArray[@]}; do
   echo $str
@@ -148,6 +150,15 @@ install_software() {
 
 # clear the screen
 clear
+
+# create directories
+cd ~
+
+mkdir git
+
+cd git
+
+mkdir public private
 
  find the Nvidia GPU
 if lspci -k | grep -A 2 -E "(VGA|3D)" | grep -iq nvidia; then
@@ -400,8 +411,23 @@ sudo pacman -Rns dolphin
 
 # Finishing touches
 sh ~/.config/DJ-hyprland/symlink.sh
-
 doom sync
+
+# Removing unnecssary pacakges
+
+sudo pacman -Rns vim
+
+sudo pacman -Rns cliphist
+
+sudo pacman -S rustup
+
+sudo pacman -Qdtq | pacman -Rns -
+
+sudo pacman -S pulseaudio
+
+sudo pacman -S gpm
+
+sudo pacman -S pipewire-media-session
 
 ### Script is done ###
 echo -e "$CNT - Script had completed!"
