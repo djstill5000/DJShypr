@@ -18,6 +18,9 @@
 #
 #
 # DJ-hyprland by djstillxyz - https://github.com/djstillxyz
+#
+# Forked from SolDoesTech - HyprV4: https://github.com/SolDoesTech/HyprV4
+#
 # License - GPL-3.0
 #
 # 1. Core Packages:
@@ -214,9 +217,9 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 
     # DONT THINK I NEED THIS
     # Enable the sddm login manager service
-    echo -e "$CNT - Enabling the SDDM Service..."
-    sudo systemctl enable sddm &>> $INSTLOG
-    sleep 2
+    #echo -e "$CNT - Enabling the SDDM Service..."
+    #sudo systemctl enable sddm &>> $INSTLOG
+    #sleep 2
 
     # Clean out other portals
     echo -e "$CNT - Cleaning out conflicting xdg portals..."
@@ -277,18 +280,18 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
     # DONT THINK I NEED THIS
     # Copy the SDDM theme
-    echo -e "$CNT - Setting up the login screen."
-    sudo cp -R Extras/sdt /usr/share/sddm/themes/
-    sudo chown -R $USER:$USER /usr/share/sddm/themes/sdt
-    sudo mkdir /etc/sddm.conf.d
-    echo -e "[Theme]\nCurrent=sdt" | sudo tee -a /etc/sddm.conf.d/10-theme.conf &>> $INSTLOG
-    WLDIR=/usr/share/wayland-sessions
-    if [ -d "$WLDIR" ]; then
-        echo -e "$COK - $WLDIR found"
-    else
-        echo -e "$CWR - $WLDIR NOT found, creating..."
-        sudo mkdir $WLDIR
-    fi
+    #echo -e "$CNT - Setting up the login screen."
+    #sudo cp -R Extras/sdt /usr/share/sddm/themes/
+    #sudo chown -R $USER:$USER /usr/share/sddm/themes/sdt
+    #sudo mkdir /etc/sddm.conf.d
+    #echo -e "[Theme]\nCurrent=sdt" | sudo tee -a /etc/sddm.conf.d/10-theme.conf &>> $INSTLOG
+    #WLDIR=/usr/share/wayland-sessions
+    #if [ -d "$WLDIR" ]; then
+    #    echo -e "$COK - $WLDIR found"
+    #else
+    #    echo -e "$CWR - $WLDIR NOT found, creating..."
+    #    sudo mkdir $WLDIR
+    #fi
 
     # stage the .desktop file
     sudo cp Extras/hyprland.desktop /usr/share/wayland-sessions/
