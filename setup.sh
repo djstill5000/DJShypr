@@ -395,6 +395,11 @@ paru -S vencord zen-browser-avx2-bin
 sudo pacman -Rns dolphin
 
 
+# Finishing touches
+sh ~/.config/DJ-hyprland/symlink.sh
+
+doom sync
+
 ### Script is done ###
 echo -e "$CNT - Script had completed!"
 if [[ "$ISNVIDIA" == true ]]; then
