@@ -1,6 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export --path PATH:/opt/android\x2dsdk/platform\x2dtools\x1e/home/derek/\x2econfig/emacs/bin\x1e/home/derek/Documents/repos/private/slizzbop\x1e/home/derek/miniconda3/bin\x1e/sbin\x1e/bin\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/sbin\x1e/usr/bin\x1e/opt/android\x2dsdk/platform\x2dtools\x1e/usr/lib/jvm/default/bin\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/bin/core_perl\x1e/usr/lib/rustup/bin
+SETUVAR --export --path PATH:/opt/android\x2dsdk/platform\x2dtools\x1e/home/derek/\x2econfig/emacs/bin\x1e/home/derek/Documents/repos/private/slizzbop\x1e/home/derek/miniconda3/bin\x1e/home/derek/git/public/miniconda3/bin\x1e/home/derek/git/public/miniconda3/condabin\x1e/sbin\x1e/bin\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/sbin\x1e/usr/bin\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/bin/core_perl
 SETUVAR __fish_initialized:3400
 SETUVAR budspencer_colors:000000\x1e083743\x1e445659\x1efdf6e3\x1eb58900\x1ecb4b16\x1edc121f\x1eaf005f\x1e6c71c4\x1e268bd2\x1e2aa198\x1e859900
 SETUVAR budspencer_cursors:\x5c033\x5d12\x3b\x23268bd2\x5c007\x1e\x5c033\x5d12\x3b\x23b58900\x5c007\x1e\x5c033\x5d12\x3b\x23af005f\x5c007\x1e\x5c033\x5d12\x3b\x236c71c4\x5c007

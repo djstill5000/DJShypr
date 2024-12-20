@@ -132,14 +132,14 @@
    `(org-block-end-line ((,class (:inherit org-block-begin-line))))
 
 
-    `(org-level-1 ((t (:foreground ,(gruvvy-forest) :weight bold :height 1.2))))
-    `(org-level-2 ((t (:foreground ,(gruvvy-eucalyptus) :weight bold :height 1.15))))
-    `(org-level-3 ((t (:foreground ,(gruvvy-olive) :weight semi-bold :height 1.1))))
-    `(org-level-4 ((t (:foreground ,(gruvvy-reseda) :weight normal :height 1.05))))
-    `(org-level-5 ((t (:foreground ,(gruvvy-copper) :weight normal))))
-    `(org-level-6 ((t (:foreground ,(gruvvy-cedar)))))
-    `(org-level-7 ((t (:foreground ,(gruvvy-walnut)))))
-    `(org-level-8 ((t (:foreground ,(gruvvy-graphite)))))
+   ;; `(org-level-1 ((t (:foreground ,(gruvvy-forest) :weight bold :height 1.2))))
+   ;; `(org-level-2 ((t (:foreground ,(gruvvy-eucalyptus) :weight bold :height 1.15))))
+   ;; `(org-level-3 ((t (:foreground ,(gruvvy-olive) :weight semi-bold :height 1.1))))
+   ;; `(org-level-4 ((t (:foreground ,(gruvvy-reseda) :weight normal :height 1.05))))
+   ;; `(org-level-5 ((t (:foreground ,(gruvvy-copper) :weight normal))))
+   ;; `(org-level-6 ((t (:foreground ,(gruvvy-cedar)))))
+   ;; `(org-level-7 ((t (:foreground ,(gruvvy-walnut)))))
+   ;; `(org-level-8 ((t (:foreground ,(gruvvy-graphite)))))
 
 
    ;;;;; line numbers

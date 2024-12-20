@@ -24,7 +24,7 @@
 #   Terminal:            kitty
 #   Shell:               fish
 #   File Search:         bemenu
-#   File Manager:        yazi
+#   File Manager:        yazi + thunar
 #   Screen Locker:       swaylock
 #   Notification Daemon: mako
 #   Menu Bar:            waybar
@@ -35,14 +35,14 @@
 #   AUR helpter:         paru
 #
 # 2. Utilities:
-#   Browser:             firefox
+#   Browser:             zen
 #   Editor:              emacs
 #   Image Viewer:        TBD
 #   Video Viewer:        TBD
 #   PDF Viewer:          emacs
-#   Music Player:        slizbop
+#   Music Player:        TBD
 #   Screenshot Software: TBD
-#
+#   Social Messaging:    vencord
 #----------------------------------------------------------------------------------
 
 prep_stage=(
@@ -91,7 +91,6 @@ install_stage=(
     starship
     ttf-jetbrains-mono-nerd
     fish
-    discord
     yazi
     texlab
 )
@@ -364,9 +363,6 @@ cd emacs-29/
 
 sh autogen.sh
 
-
-# Might need to do this step manually, not sure if this works properly,
-# this step is vital to ensuring emacs has transparency and compiles correctly
 ./configure --without-compress-install \
             --with-pgtk \
             --without-libotf \
@@ -392,9 +388,8 @@ git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
 sudo rm -r ~/.emacs.d
 doom sync
 
-# Fix paru location
-#cd ~/git/DJShypr
-#mv paru ~
+# Install AUR packages
+paru -S vencord zen-browser-avx2-bin
 
 # Uninstall dolphin and related packages
 sudo pacman -Rns dolphin
