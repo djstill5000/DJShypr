@@ -82,6 +82,7 @@ install_stage=(
     swaylock-effects
     bemenu-wayland
     wlogout
+    firefox
     gvfs
     brightnessctl
     xdg-desktop-portal-hyprland
@@ -308,10 +309,13 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
     # stage the .desktop file
     sudo cp Extras/hyprland.desktop /usr/share/wayland-sessions/
+    #cd ~/.config/DJ-hyprland
+    #sudo cp Extras/hyprland.desktop /usr/share/wayland-sessions/
+
 
     # setup the first look and feel as dark
-    xfconf-query -c xsettings -p /Net/ThemeName -s "Everforest-Light"
-    xfconf-query -c xsettings -p /Net/IconThemeName -s "Zafiro-Nord-Dark-Grey"
+    #xfconf-query -c xsettings -p /Net/ThemeName -s "Everforest-Light"
+    #xfconf-query -c xsettings -p /Net/IconThemeName -s "Zafiro-Nord-Dark-Grey"
     gsettings set org.gnome.desktop.interface gtk-theme "Everforest-Light"
     gsettings set org.gnome.desktop.interface icon-theme "Zafiro-Nord-Dark-Grey"
 
@@ -423,19 +427,19 @@ doom sync
 
 # Removing unnecssary pacakges
 
-sudo pacman -Rns vim
+#sudo pacman -Rns vim
 
-sudo pacman -Rns cliphist
+#sudo pacman -Rns cliphist
 
-sudo pacman -S rustup
+#sudo pacman -S rustup
 
-sudo pacman -Qdtq | pacman -Rns -
+#sudo pacman -Qdtq | pacman -Rns -
 
-sudo pacman -S pulseaudio
+#sudo pacman -S pulseaudio
 
-sudo pacman -S gpm
+#sudo pacman -S gpm
 
-sudo pacman -S pipewire-media-session
+#sudo pacman -S pipewire-media-session
 
 ### Script is done ###
 echo -e "$CNT - Script had completed!"
